@@ -1,16 +1,16 @@
 import './App.css';
-import ProductForm from './components/ProductForm';
-import NewProduct from './views/NewProduct';
-import {Router, Link} from '@reach/router';
+import Main from './views/Main';
+import Details from './views/Details';
+import {Router} from '@reach/router';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-
   return (
     <div className="App">
-      <h1>Product Form</h1>
+      <h1>Product Manager</h1>
       <Router>
-        <NewProduct path="/"/>
+        <Main path="/"/>
+        <Details path="/products/:id"/>
       </Router>
     </div>
   );
