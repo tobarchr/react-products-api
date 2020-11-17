@@ -1,6 +1,7 @@
 import './App.css';
 import Main from './views/Main';
 import Details from './views/Details';
+import UpdateProduct from './views/UpdateProduct';
 import {Router} from '@reach/router';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -11,6 +12,7 @@ function App() {
       <Router>
         <Main path="/"/>
         <Details path="/products/:id"/>
+        <UpdateProduct path="/products/update/:id"/>
       </Router>
     </div>
   );

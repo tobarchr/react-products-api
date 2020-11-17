@@ -32,7 +32,7 @@ module.exports.updateProduct = (req,res) =>{
             description: req.body.description,
             price: req.body.price
         }
-    })
+    },{runValidators:true})
         .then((allProd) => res.json({products: allProd}))
         .catch((err) => res.json({message: "Something went wrong", error: err}))   
 }

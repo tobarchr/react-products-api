@@ -28,9 +28,15 @@ const Main = props => {
         e.preventDefault();
         axios.post("http://localhost:8000/api/products/new", form)
         .then (res => {console.log(res);
-            navigate('/')}
+            navigate("/")}
         )
         .catch(err=> console.log(err))
+    }
+
+    const removeProduct = _id => {
+        axios.delete(`http://localhost:8000/api/products/delete/${_id}`)
+            .then(res=>console.log('User was removed sucessfully'))
+            .catch(err=>console.log(err))
     }
     return(
         <div>
@@ -43,7 +49,7 @@ const Main = props => {
                 {
                     allProducts ? 
                     allProducts.map((prod,i)=>{
-                    return <a href={`http://localhost:3000/products/${prod._id}`} key={i}><p>{prod.title}</p></a>
+                    return <p key={i}><a href={`http://localhost:3000/products/${prod._id}`}>{prod.title}</a><button className="btn btn-danger" onClick={()=> removeProduct(prod._id)}>Delete</button>&nbsp;&nbsp;<a href={`http://localhost:3000/products/update/${prod._id}`} className="btn btn-primary">Update</a></p>
                     }
                     ):""
                 }
